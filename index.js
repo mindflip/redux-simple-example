@@ -1,3 +1,5 @@
+import Redux from "redux";
+
 // action creator
 const createPolicy = (name, amount) => {
   return {
@@ -66,3 +68,21 @@ const outDepartments = combineReducers({
 });
 
 const store = createStore(outDepartments);
+
+console.log(store.getState());
+
+store.dispatch(createPolicy("TAINA", 50));
+store.dispatch(createPolicy("MOLLI", 20));
+store.dispatch(createPolicy("BANANA", 120));
+
+console.log(store.getState());
+
+store.dispatch(createClaim("MOLLI", 40));
+store.dispatch(createClaim("MOLLI", 20));
+store.dispatch(createClaim("TAINA", 10));
+
+console.log(store.getState());
+
+store.dispatch(deletePolicy("MOLLI"));
+
+console.log(store.getState());
