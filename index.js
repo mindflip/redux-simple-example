@@ -56,3 +56,13 @@ const policies = (listOfPolicies = [], action) => {
 
   return listOfPolicies;
 };
+
+const { createStore, combineReducers } = Redux;
+
+const outDepartments = combineReducers({
+  accounting,
+  claimsHistory,
+  policies,
+});
+
+const store = createStore(outDepartments);
